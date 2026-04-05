@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filip Doležal Portfolio</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    body {background-color: #f5f5f5; color: #333; line-height: 1.6;}
+    a {text-decoration: none; color: inherit;}
+    img {max-width: 100%; display: block;}
+
+    header {background-color: #0d1117; color: #fff; padding: 2rem 1rem; text-align: center;}
+    header h1 {font-size: 2.5rem; margin-bottom: 0.5rem;}
+    header p {font-size: 1.1rem; color: #c9d1d9;}
+    nav {margin-top: 1rem;}
+    nav a {margin: 0 1rem; font-weight: bold; transition: color 0.3s;}
+    nav a:hover {color: #58a6ff;}
+
+    section {padding: 4rem 1rem; max-width: 900px; margin: 0 auto;}
+    section h2 {font-size: 2rem; margin-bottom: 1.5rem; text-align: center;}
+
+    #about p {text-align: center; max-width: 700px; margin: 0 auto;}
+
+    .projects {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;}
+    .project-card {background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .project-card:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
+    .project-card h3 {margin-bottom: 1rem; color: #0d1117;}
+    .project-card p {font-size: 0.95rem; color: #555;}
+
+    .contact {display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;}
+    .contact a {background-color: #0d1117; color: #fff; padding: 0.75rem 1.5rem; border-radius: 50px; transition: background-color 0.3s;}
+    .contact a:hover {background-color: #58a6ff;}
+
+    footer {text-align: center; padding: 2rem 1rem; background-color: #0d1117; color: #c9d1d9;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Filip Doležal</h1>
+    <p>Bachelor's in Computer Games & Graphics (CTU FEE Prague) | Master's Student at Matfyz in Computer Games & Graphics</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm Filip, a passionate developer and 3D artist. I love games, movies, and creating 3D graphics in Blender. 
+      Currently pursuing my Master's in Computer Games & Graphics at Matfyz, building both technical and creative skills.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A responsive personal portfolio built with HTML, CSS, and JavaScript showcasing my projects and skills.</p>
+      </div>
+      <div class="project-card">
+        <h3>3D Graphics in Blender</h3>
+        <p>Personal 3D modeling and rendering projects created in Blender, exploring textures, lighting, and animation.</p>
+      </div>
+      <div class="project-card">
+        <h3>Task Manager App</h3>
+        <p>A full-stack application to manage tasks, built with React, Node.js, and MongoDB.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:fidokadan@gmail.com">Email Me</a>
+      <a href="https://github.com/Rionit" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/filip-dole%C5%BEal-79a423275/" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Filip Doležal. All rights reserved.
+  </footer>
+
+</body>
+</html>
