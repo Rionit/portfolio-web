@@ -1,2 +1,3 @@
-# My portfolio website
-[Visit my portfolio here](https://rionit.net/)
+# My Portfolio Website
+## Tech Stack
+- Pure html, css and js
