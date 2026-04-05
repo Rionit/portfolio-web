@@ -1,2 +1,2 @@
 # My portfolio website
-[link](https://rionit.net/)
+[Visit my portfolio here](https://rionit.net/)
