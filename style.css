@@ -229,14 +229,14 @@ p a:visited{
   background: rgba(255,255,255,0.06);
 }
 
-.badge:hover:nth-child(2n), .project:hover:hover:nth-child(2n) {
+:is(.badge, .project, .renders-gallery img):hover:nth-child(2n) {
   border-color: var(--accent-color);
   box-shadow: 0px 0px 10px var(--accent-color);
 }
 
-.badge:hover:nth-child(2n+1), .project:hover:hover:nth-child(2n+1) {
-  box-shadow: 0px 0px 10px var(--primary-color);
+:is(.badge, .project, .renders-gallery img):hover:nth-child(2n+1) {
   border-color: var(--primary-color);
+  box-shadow: 0px 0px 10px var(--primary-color);
 }
 
 /* text inside badge */
@@ -309,3 +309,32 @@ footer {
   font-size: 0.8rem;
   color: var(--muted);
 }
+
+/* Home & Renders */
+.home-link {
+  color: var(--muted);
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.renders-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+}
+
+.renders-gallery img {
+  width: 100%;
+  border-radius: 1em;
+  border: 2px solid transparent;
+  transition: transform 0.3s;
+}
+
+.renders-gallery img:hover {
+  transform: scale(1.05);
+}
+
