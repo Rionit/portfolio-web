@@ -322,19 +322,22 @@ footer {
 }
 
 .renders-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  columns: 2 400px; /* Creates up to 2 columns, each at least 400px wide */
   gap: 1.5rem;
+}
+
+.renders-gallery a {
+  display: block;
+  margin-bottom: 1.5rem; /* Replaces grid gap vertically */
+  break-inside: avoid; /* Prevents images from splitting across columns */
 }
 
 .renders-gallery img {
   width: 100%;
+  height: auto;
+  display: block;
   border-radius: 1em;
   border: 2px solid transparent;
   transition: transform 0.3s;
-}
-
-.renders-gallery img:hover {
-  transform: scale(1.05);
 }
 

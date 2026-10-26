@@ -18,12 +18,6 @@
       </header>
 
       <section class="renders-gallery">
-        <!-- Example render images -->
-        <img src="renders/lord_of_war.png" alt="Lord Of War">
-        <img src="renders/canon_1.png" alt="Canon_1">
-        <img src="renders/canon_2.png" alt="Canon_1">
-        <img src="renders/ranch_1.png" alt="Ranch_1">
-        <img src="renders/ranch_2.png" alt="Ranch_2">
       </section>
 
       <footer>
@@ -32,5 +26,31 @@
       </footer>
     </div>
   </main>
+
+  <script>
+    fetch('renders.json')
+      .then(response => response.json())
+      .then(images => {
+        const gallery = document.querySelector('.renders-gallery');
+        gallery.innerHTML = ''; // Clear existing content
+        
+        images.forEach(item => {
+          // High-res image opens when clicked
+          const link = document.createElement('a');
+          link.href = `renders/${item.file}`;
+          link.target = '_blank';
+
+          // Compressed thumbnail loads fast on the page
+          const img = document.createElement('img');
+          img.src = `renders/${item.thumb}`; 
+          img.alt = item.title;
+          img.loading = 'lazy'; // Performance boost
+
+          link.appendChild(img);
+          gallery.appendChild(link);
+        });
+      })
+      .catch(error => console.error('Error loading renders:', error));
+  </script>
 </body>
 </html>
