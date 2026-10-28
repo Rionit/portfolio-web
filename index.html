@@ -32,7 +32,7 @@
         <div class="hero-divider"></div>
       </header>
 
-      <!-- Tab Buttons -->
+      <!-- Main Tab Buttons -->
       <div class="tab-controls">
         <button class="tab-btn active" data-target="links-section">Links</button>
         <button class="tab-btn" data-target="projects-section">Projects</button>
@@ -40,29 +40,75 @@
 
       <div class="content-container">
 
+        <!-- Projects Section with Subcategories -->
         <section id="projects-section" class="tab-content">
-          <div class="projects">
-            <div class="project">
-              <h3>Scrap Reaper</h3>
-              <p>Videogame made in 14 day GameJam using Godot. Rip cars apart, sort the parts and don't let your time run out!</p>
-              <p class="project-link">[ <a href="https://rionit.itch.io/scrap-reaper">play</a> | <a href="https://github.com/Rionit/Pirate-Software-Game-Jam-16">repository</a> ]</p>
+          <div class="subtab-controls">
+            <button class="subtab-btn active" data-subtarget="highlights-sub">Highlights</button>
+            <button class="subtab-btn" data-subtarget="games-sub">Games</button>
+            <button class="subtab-btn" data-subtarget="threed-sub">3D</button>
+            <button class="subtab-btn" data-subtarget="school-sub">School</button>
+          </div>
+
+          <div class="subcontent-container">
+            <!-- Highlights Subtab -->
+            <div id="highlights-sub" class="subtab-content active">
+              <div class="projects">
+                <div class="project">
+                  <h3>Scrap Reaper</h3>
+                  <p>Videogame made in 14 day GameJam using Godot. Rip cars apart, sort the parts and don't let your time run out!</p>
+                  <p class="project-link">[ <a href="https://rionit.itch.io/scrap-reaper">play</a> | <a href="https://github.com/Rionit/Pirate-Software-Game-Jam-16">repository</a> ]</p>
+                </div>
+                
+                <div class="project">
+                  <h3>Bachelor Thesis</h3>
+                  <p>Indoor navigation using AR and Immersal SDK in Unity for Android and iOS.</p>
+                  <p class="project-link">[ <a href="https://github.com/Rionit/Bachelor-Thesis">repository</a> | <a href="https://dcgi.fel.cvut.cz/theses/2025/dolezfil/">publication</a> ]</p>
+                </div>
+      
+                <div class="project">
+                  <h3>Lord Of War</h3>
+                  <p>Intro speech scene made in Blender. Currently working on the whole intro sequence showing the life of a bullet.</p>
+                  <p class="project-link">[ <a href="https://youtu.be/jRB2q-vhGHc">video</a> | <a href="https://youtu.be/L4Lqt5cYGYs">wip</a> | <a href="https://www.artstation.com/artwork/L4yd15">bts</a> ]</p>
+                </div>
+              </div>
             </div>
-            
-            <div class="project">
-              <h3>Bachelor Thesis</h3>
-              <p>Indoor navigation using AR and Immersal SDK in Unity for Android and iOS.</p>
-              <p class="project-link">[ <a href="https://github.com/Rionit/Bachelor-Thesis">repository</a> | <a href="https://dcgi.fel.cvut.cz/theses/2025/dolezfil/">publication</a> ]</p>
+
+            <!-- Games Subtab -->
+            <div id="games-sub" class="subtab-content">
+              <div class="projects">
+                <div class="project">
+                  <h3>Scrap Reaper</h3>
+                  <p>Videogame made in 14 day GameJam using Godot. Rip cars apart, sort the parts and don't let your time run out!</p>
+                  <p class="project-link">[ <a href="https://rionit.itch.io/scrap-reaper">play</a> | <a href="https://github.com/Rionit/Pirate-Software-Game-Jam-16">repository</a> ]</p>
+                </div>
+              </div>
             </div>
-  
-            <div class="project">
-              <h3>Lord Of War</h3>
-              <p>Intro speech scene made in Blender. Currently working on the whole intro sequence showing the life of a bullet.</p>
-              <p class="project-link">[ <a href="https://youtu.be/jRB2q-vhGHc">video</a> | <a href="https://youtu.be/L4Lqt5cYGYs">wip</a> | <a href="https://www.artstation.com/artwork/L4yd15">bts</a> ]</p>
+
+            <!-- 3D Subtab -->
+            <div id="threed-sub" class="subtab-content">
+              <div class="projects">
+                <div class="project">
+                  <h3>Lord Of War</h3>
+                  <p>Intro speech scene made in Blender. Currently working on the whole intro sequence showing the life of a bullet.</p>
+                  <p class="project-link">[ <a href="https://youtu.be/jRB2q-vhGHc">video</a> | <a href="https://youtu.be/L4Lqt5cYGYs">wip</a> | <a href="https://www.artstation.com/artwork/L4yd15">bts</a> ]</p>
+                </div>
+              </div>
             </div>
-  
+
+            <!-- School Subtab -->
+            <div id="school-sub" class="subtab-content">
+              <div class="projects">
+                <div class="project">
+                  <h3>Bachelor Thesis</h3>
+                  <p>Indoor navigation using AR and Immersal SDK in Unity for Android and iOS.</p>
+                  <p class="project-link">[ <a href="https://github.com/Rionit/Bachelor-Thesis">repository</a> | <a href="https://dcgi.fel.cvut.cz/theses/2025/dolezfil/">publication</a> ]</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
   
+        <!-- Links Section -->
         <section id="links-section" class="tab-content active">
           <div class="links">
   
@@ -129,35 +175,89 @@
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     const contentContainer = document.querySelector('.content-container');
+    const subtabButtons = document.querySelectorAll('.subtab-btn');
+    const subtabContents = document.querySelectorAll('.subtab-content');
 
+    function animateToContent(showContentCallback) {
+      // Step 1: Lock container height to current outer dimensions
+      const startHeight = contentContainer.offsetHeight;
+      contentContainer.style.height = startHeight + 'px';
+
+      // Step 2: Perform DOM class swaps inside callback
+      showContentCallback();
+
+      // Step 3: Measure precise scrollHeight including bottom paddings/margins
+      const activeTab = contentContainer.querySelector('.tab-content.active');
+      let targetHeight = 0;
+      if (activeTab) {
+        targetHeight = activeTab.offsetHeight;
+      }
+
+      // Step 4: Animate to exact target height
+      requestAnimationFrame(() => {
+        contentContainer.style.height = targetHeight + 'px';
+      });
+    }
+
+    // Set initial height on page load so transition has a clean base
+    window.addEventListener('load', () => {
+      const activeTab = contentContainer.querySelector('.tab-content.active');
+      if (activeTab) {
+        contentContainer.style.height = activeTab.offsetHeight + 'px';
+      }
+    });
+
+    // Main Tabs Switcher
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-target');
         if (button.classList.contains('active')) return;
+        const targetId = button.getAttribute('data-target');
 
-        // Freeze current height to prevent instant container jump before transition
-        contentContainer.style.height = contentContainer.offsetHeight + 'px';
+        animateToContent(() => {
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
 
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        tabContents.forEach(content => {
-          content.classList.remove('active');
+          tabContents.forEach(content => {
+            if (content.id === targetId) {
+              content.classList.add('active');
+            } else {
+              content.classList.remove('active');
+            }
+          });
         });
-
-        const targetContent = document.getElementById(targetId);
-        targetContent.classList.add('active');
-
-        // Measure target height, then animate container height smoothly
-        requestAnimationFrame(() => {
-          contentContainer.style.height = targetContent.scrollHeight + 'px';
-        });
-
-        // Clean up inline height style after transition completes so it remains fully responsive
-        setTimeout(() => {
-          contentContainer.style.height = 'auto';
-        }, 500);
       });
+    });
+
+    // Subtabs Switcher
+    subtabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.classList.contains('active')) return;
+        const targetSubId = button.getAttribute('data-subtarget');
+
+        animateToContent(() => {
+          subtabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          subtabContents.forEach(content => {
+            if (content.id === targetSubId) {
+              content.classList.add('active');
+            } else {
+              content.classList.remove('active');
+            }
+          });
+        });
+      });
+    });
+
+    // Handle responsive window resizing smoothly
+    window.addEventListener('resize', () => {
+      const activeTab = contentContainer.querySelector('.tab-content.active');
+      if (activeTab) {
+        contentContainer.style.transition = 'none';
+        contentContainer.style.height = activeTab.offsetHeight + 'px';
+        contentContainer.offsetHeight; // Force reflow
+        contentContainer.style.transition = 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      }
     });
   </script>
 </body>
