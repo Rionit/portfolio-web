@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+
   <main>
     <marquee>⚠️ Site is under construction! ⚠️</marquee>
     
@@ -32,11 +32,15 @@
         <div class="hero-divider"></div>
       </header>
 
-      <div class="two-column">
+      <!-- Tab Buttons -->
+      <div class="tab-controls">
+        <button class="tab-btn active" data-target="links-section">Links</button>
+        <button class="tab-btn" data-target="projects-section">Projects</button>
+      </div>
 
-        <section>
-          <h2>Projects</h2>
-  
+      <div class="content-container">
+
+        <section id="projects-section" class="tab-content">
           <div class="projects">
             <div class="project">
               <h3>Scrap Reaper</h3>
@@ -59,9 +63,7 @@
           </div>
         </section>
   
-        <section>
-          <h2>Links</h2>
-  
+        <section id="links-section" class="tab-content active">
           <div class="links">
   
             <a href="mailto:contact@rionit.net" class="badge">
@@ -123,5 +125,40 @@
     </div>
   </main>
 
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const contentContainer = document.querySelector('.content-container');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        if (button.classList.contains('active')) return;
+
+        // Freeze current height to prevent instant container jump before transition
+        contentContainer.style.height = contentContainer.offsetHeight + 'px';
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        const targetContent = document.getElementById(targetId);
+        targetContent.classList.add('active');
+
+        // Measure target height, then animate container height smoothly
+        requestAnimationFrame(() => {
+          contentContainer.style.height = targetContent.scrollHeight + 'px';
+        });
+
+        // Clean up inline height style after transition completes so it remains fully responsive
+        setTimeout(() => {
+          contentContainer.style.height = 'auto';
+        }, 500);
+      });
+    });
+  </script>
 </body>
 </html>
