@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Lord Of War",
+    "description": "A 3D recreation of Nicolas Cage’s iconic speech, made in Blender. Currently working on the whole intro sequence showing the life of a bullet.",
+    "categories": ["highlights", "threed"],
+    "priority": 1,
+    "links": [
+      { "label": "video", "url": "https://youtu.be/jRB2q-vhGHc" },
+      { "label": "wip", "url": "https://youtu.be/L4Lqt5cYGYs" },
+      { "label": "bts", "url": "https://www.artstation.com/artwork/L4yd15" }
+    ]
+  },
+    {
+    "title": "Monkey Business",
+    "description": "First person arena shooter about NFT-making monkeys going apeshit. It won the People's Award choice.",
+    "categories": ["highlights", "games", "school"],
+    "priority": 2,
+    "links": [
+      { "label": "play", "url": "https://kajik.itch.io/monkey-business" },
+      { "label": "repository", "url": "https://github.com/Rionit/Monkey-Business" }
+    ]
+  },
+    {
+    "title": "Bachelor Thesis",
+    "description": "Indoor navigation using AR and Immersal SDK in Unity for Android and iOS.",
+    "categories": ["highlights", "school"],
+    "priority": 3,
+    "links": [
+      { "label": "repository", "url": "https://github.com/Rionit/Bachelor-Thesis" },
+      { "label": "publication", "url": "https://dcgi.fel.cvut.cz/theses/2025/dolezfil/" }
+    ]
+  },
+    {
+    "title": "Scrap Reaper",
+    "description": "Videogame made in 14 day GameJam using Godot. Rip cars apart, sort the parts and don't let your time run out!",
+    "categories": ["games"],
+    "priority": 4,
+    "links": [
+      { "label": "play", "url": "https://rionit.itch.io/scrap-reaper" },
+      { "label": "repository", "url": "https://github.com/Rionit/Pirate-Software-Game-Jam-16" }
+    ]
+  },
+    {
+    "title": "Can't Tell You",
+    "description": "Short narrative \"heist gone wrong\" game made in 50h oiSIDE GameJam heavily inspired by the great <a href=\"https://blendogames.com/thirtyflightsofloving/\" target=\"_blank\">Thirty Flights of Loving</a>.",
+    "categories": ["games"],
+    "priority": 5,
+    "links": [
+      { "label": "play", "url": "https://rionit.itch.io/cant-tell-you" },
+      { "label": "repository", "url": "https://github.com/Rionit/oiSIDE-Game-Jam-3" }
+    ]
+  },
+    {
+    "title": "Your Form... Incomplorbed",
+    "description": "A game made in 48h Matfyz GameJam about alien bureaucratic nightmare for human immigrants. It won the special \"Please, Fix This!\" Best Game Award.",
+    "categories": ["games"],
+    "priority": 4,
+    "links": [
+      { "label": "play", "url": "https://twafla.itch.io/oh-my-glurp" },
+      { "label": "repository", "url": "https://github.com/Rionit/Matfyz-Spring-Game-Jam-2026" }
+    ]
+  },
+    {
+    "title": "Secret Munchies",
+    "description": "You play as a spy at a Pentagon fast-food joint called Secret Munchies. You must prep food, eavesdrop on top-secret conversations and send the intel back to HQ via Morse code.",
+    "categories": ["games", "school"],
+    "priority": 6,
+    "links": [
+      { "label": "play", "url": "https://rionit.itch.io/cuni-mff-ncgd008-25-26" },
+      { "label": "repository", "url": "https://github.com/Rionit/Secret-Munchies" }
+    ]
+  },
+    {
+    "title": "Journey of the Prairie King",
+    "description": "Semestral project recreating minigame from Stardew Valley using Javascript, CSS and HTML.",
+    "categories": ["school"],
+    "priority": 50,
+    "links": [
+      { "label": "play", "url": "https://stardew.rionit.net" },
+      { "label": "repository", "url": "https://github.com/Rionit/KAJ-semestral-project" }
+    ]
+  },
+    {
+    "title": "South Park",
+    "description": "Recreation of South Park’s \"Good Times with Weapons\" Scene. I created custom rigs and hand animated frame by frame.",
+    "categories": ["threed", "school"],
+    "priority": 10,
+    "links": [
+      { "label": "link", "url": "https://www.artstation.com/artwork/xDXeg1" }
+    ]
+  }
+]
