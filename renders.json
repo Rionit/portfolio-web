@@ -1,20 +1,23 @@
 [ 
-    { "file": "1-ranch.jpg", "thumb": "thumbs/1-ranch.jpg", "title": "1-ranch" } 
+  { "file": "lord_of_war_1.jpg", "thumb": "thumbs/lord_of_war_1.jpg", "title": "lord of war 1" } 
+  , { "file": "lord_of_war_3.jpg", "thumb": "thumbs/lord_of_war_3.jpg", "title": "lord of war 3" } 
+  , { "file": "lord_of_war_5.jpg", "thumb": "thumbs/lord_of_war_5.jpg", "title": "lord of war 5" } 
+  , { "file": "1-ranch.jpg", "thumb": "thumbs/1-ranch.jpg", "title": "1-ranch" } 
   , { "file": "2-canon.jpg", "thumb": "thumbs/2-canon.jpg", "title": "2-canon" } 
   , { "file": "2-canon_side.jpg", "thumb": "thumbs/2-canon_side.jpg", "title": "2-canon side" } 
   , { "file": "2-night-ranch.jpg", "thumb": "thumbs/2-night-ranch.jpg", "title": "2-night-ranch" } 
   , { "file": "5-ranch.jpg", "thumb": "thumbs/5-ranch.jpg", "title": "5-ranch" } 
   , { "file": "6-iphone.jpg", "thumb": "thumbs/6-iphone.jpg", "title": "6-iphone" } 
-  , { "file": "7-iphone.jpg", "thumb": "thumbs/7-iphone.jpg", "title": "7-iphone" }
+  , { "file": "7-iphone.jpg", "thumb": "thumbs/7-iphone.jpg", "title": "7-iphone" } 
+  , { "file": "bf_meme.jpg", "thumb": "thumbs/bf_meme.jpg", "title": "bf meme" } 
   , { "file": "fight_club_v7.jpg", "thumb": "thumbs/fight_club_v7.jpg", "title": "fight club v7" } 
   , { "file": "fullmetal_pipes_different_angle.jpg", "thumb": "thumbs/fullmetal_pipes_different_angle.jpg", "title": "fullmetal pipes different angle" } 
   , { "file": "lord_of_war_1.jpg", "thumb": "thumbs/lord_of_war_1.jpg", "title": "lord of war 1" } 
   , { "file": "lord_of_war_2.jpg", "thumb": "thumbs/lord_of_war_2.jpg", "title": "lord of war 2" } 
   , { "file": "lord_of_war_3.jpg", "thumb": "thumbs/lord_of_war_3.jpg", "title": "lord of war 3" } 
   , { "file": "lord_of_war_4.jpg", "thumb": "thumbs/lord_of_war_4.jpg", "title": "lord of war 4" } 
+  , { "file": "lord_of_war_5.jpg", "thumb": "thumbs/lord_of_war_5.jpg", "title": "lord of war 5" } 
   , { "file": "playtime_final_better.jpg", "thumb": "thumbs/playtime_final_better.jpg", "title": "playtime final better" } 
   , { "file": "showing_up_final.jpg", "thumb": "thumbs/showing_up_final.jpg", "title": "showing up final" } 
   , { "file": "simpsons_tv.jpg", "thumb": "thumbs/simpsons_tv.jpg", "title": "simpsons tv" } 
-  , { "file": "bf_meme.jpg", "thumb": "thumbs/bf_meme.jpg", "title": "bf meme" } 
-  
 ] 

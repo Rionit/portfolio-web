@@ -187,11 +187,39 @@
             .map(link => `<a href="${link.url}">${link.label}</a>`)
             .join(' | ');
 
+          let mediaHtml = '';
+          if (project.thumbnail && project.gif) {
+            // Both static thumbnail and GIF available
+            mediaHtml = `
+              <div class="project-media-container has-gif">
+                <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img">
+                <img src="${project.gif}" alt="${project.title} gif" class="gif-img">
+              </div>
+            `;
+          } else if (project.thumbnail) {
+            // Only static thumbnail available
+            mediaHtml = `
+              <div class="project-media-container">
+                <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img">
+              </div>
+            `;
+          } else if (project.gif) {
+            // Only GIF available
+            mediaHtml = `
+              <div class="project-media-container">
+                <img src="${project.gif}" alt="${project.title} gif" class="thumbnail-img">
+              </div>
+            `;
+          }
+
           const projectHtml = `
             <div class="project">
-              <h3>${project.title}</h3>
-              <p>${project.description}</p>
-              <p class="project-link">[ ${linksHtml} ]</p>
+              ${mediaHtml}
+              <div class="project-info">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <p class="project-link">[ ${linksHtml} ]</p>
+              </div>
             </div>
           `;
 
