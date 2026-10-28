@@ -306,7 +306,7 @@ body {
 
 /* PC Hover behavior: Fade out only the thumbnail of the hovered project */
 @media (hover: hover) and (pointer: fine) {
-  .project:hover .project-media-container img.thumbnail-img {
+  .project:has(.project-media-container.has-gif):hover .project-media-container img.thumbnail-img {
     opacity: 0;
   }
 }

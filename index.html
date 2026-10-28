@@ -135,12 +135,15 @@
     </div>
   </main>
 
-  <script>
+<script>
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     const contentContainer = document.querySelector('.content-container');
     const subtabButtons = document.querySelectorAll('.subtab-btn');
     const subtabContents = document.querySelectorAll('.subtab-content');
+
+    // Keep track of the active mobile timer so we can cancel it if the user switches tabs quickly
+    let mobileGifTimer = null;
 
     function animateToContent(showContentCallback) {
       const startHeight = contentContainer.offsetHeight;
@@ -157,6 +160,29 @@
       requestAnimationFrame(() => {
         contentContainer.style.height = targetHeight + 'px';
       });
+    }
+
+    // Helper function to reset all projects in the currently active view back to static, then wait 3s to fade to gifs on mobile
+    function resetAndTriggerMobileGifFade() {
+      // Clear any pending timer from a previous switch
+      if (mobileGifTimer) {
+        clearTimeout(mobileGifTimer);
+        mobileGifTimer = null;
+      }
+
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+        // 1. Immediately remove 'show-gif' from all project containers across the page to make them static again
+        document.querySelectorAll('.project-media-container.has-gif').forEach(container => {
+          container.classList.remove('show-gif');
+        });
+
+        // 2. Wait 3 seconds, then add 'show-gif' only to the projects visible in the currently active tab/subtab
+        mobileGifTimer = setTimeout(() => {
+          document.querySelectorAll('.tab-content.active .subtab-content.active .project-media-container.has-gif').forEach(container => {
+            container.classList.add('show-gif');
+          });
+        }, 3000);
+      }
     }
 
     // Fetch and render projects dynamically from projects.json
@@ -235,6 +261,10 @@
         if (activeTab) {
           contentContainer.style.height = activeTab.offsetHeight + 'px';
         }
+
+        // Trigger on startup
+        resetAndTriggerMobileGifFade();
+
       } catch (error) {
         console.error('Failed to load projects:', error);
       }
@@ -261,6 +291,8 @@
             }
           });
         });
+
+        resetAndTriggerMobileGifFade();
       });
     });
 
@@ -282,6 +314,8 @@
             }
           });
         });
+
+        resetAndTriggerMobileGifFade();
       });
     });
 
