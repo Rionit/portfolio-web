@@ -2,7 +2,7 @@
   {
     "title": "Lord Of War",
     "description": "A 3D recreation of Nicolas Cage’s iconic speech, made in Blender. Currently working on the whole intro sequence showing the life of a bullet.",
-    "categories": ["highlights", "threed"],
+    "categories": ["highlights", "cgi"],
     "priority": 1,
     "thumbnail": "images/lord-of-war.jpg",
     "gif": "images/lord-of-war.gif",    
@@ -96,7 +96,7 @@
   {
     "title": "South Park",
     "description": "Recreation of South Park’s \"Good Times with Weapons\" Scene. I created custom rigs and hand animated frame by frame.",
-    "categories": ["threed", "school"],
+    "categories": ["cgi", "school"],
     "priority": 10,
     "thumbnail": "images/south-park.jpg",
     "gif": "images/south-park.gif",
