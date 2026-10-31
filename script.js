@@ -55,6 +55,9 @@ function applyHashState() {
   if (hash === '#links' || hash === '#links-section') {
     targetMainTab = 'links-section';
     targetSubTab = null;
+  } else if (hash === '#about' || hash === '#about-section') {
+    targetMainTab = 'about-section';
+    targetSubTab = null;
   } else if (hash === '#projects' || hash === '#projects-section') {
     targetMainTab = 'projects-section';
     targetSubTab = 'highlights-sub';
@@ -132,7 +135,7 @@ async function loadProjects() {
 
     projects.forEach(project => {
       const linksHtml = project.links
-        .map(link => `<a href="${link.url}">${link.label}</a>`)
+        .map(link => `<a href="${link.url}" target="_blank" rel="noopener">${link.label}</a>`)
         .join(' | ');
 
       let mediaHtml = '';
@@ -206,6 +209,8 @@ tabButtons.forEach(button => {
     // Update URL hash without jumping the page
     if (targetId === 'links-section') {
       history.replaceState(null, '', '#links');
+    } else if (targetId === 'about-section') {
+      history.replaceState(null, '', '#about');
     } else {
       history.replaceState(null, '', '#highlights');
     }
