@@ -32,6 +32,12 @@ body {
   padding: 0.7rem;
 }
 
+/* Accessibility: Focus visible */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 /* card */
 .card {
   position: relative;
@@ -257,7 +263,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1.2rem;
-  align-items: flex-start;
+  align-items: stretch; /* Zajišťuje, že info box vyplní celou výšku media kontejneru */
   padding: 1rem;
   background: var(--header-color);
   border-radius: 6px;
@@ -288,8 +294,6 @@ body {
   height: 100%;
   object-fit: cover;
   transition: opacity 0.4s ease-in-out;
-  /* image-rendering: -webkit-optimize-contrast;  
-  image-rendering: crisp-edges; */
 }
 
 /* GIF sits underneath and is fully visible by default */
@@ -320,6 +324,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  justify-content: space-between; /* Odsune odkazy na samý spodek info bloku */
 }
 
 .project-info h3 {
@@ -350,8 +355,9 @@ p a:visited{
 }
 
 .project-link{
-  margin-top: 10px;
+  margin-top: 1rem;
   text-align: right;
+  align-self: flex-end; /* Zarovnání odkazů do pravého dolního rohu */
 }
 
 .links {
@@ -463,4 +469,16 @@ footer {
   border-radius: 1em;
   border: 2px solid transparent;
   transition: transform 0.3s;
+}
+
+/* hide scrollbar */
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ a Edge */
 }

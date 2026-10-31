@@ -139,20 +139,20 @@ async function loadProjects() {
       if (project.thumbnail && project.gif) {
         mediaHtml = `
           <div class="project-media-container has-gif">
-            <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img">
-            <img src="${project.gif}" alt="${project.title} gif" class="gif-img">
+            <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img" loading="lazy">
+            <img src="${project.gif}" alt="${project.title} gif" class="gif-img" loading="lazy">
           </div>
         `;
       } else if (project.thumbnail) {
         mediaHtml = `
           <div class="project-media-container">
-            <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img">
+            <img src="${project.thumbnail}" alt="${project.title} thumbnail" class="thumbnail-img" loading="lazy">
           </div>
         `;
       } else if (project.gif) {
         mediaHtml = `
           <div class="project-media-container">
-            <img src="${project.gif}" alt="${project.title} gif" class="thumbnail-img">
+            <img src="${project.gif}" alt="${project.title} gif" class="thumbnail-img" loading="lazy">
           </div>
         `;
       }
@@ -161,8 +161,10 @@ async function loadProjects() {
         <div class="project">
           ${mediaHtml}
           <div class="project-info">
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
+            <div>
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+            </div>
             <p class="project-link">[ ${linksHtml} ]</p>
           </div>
         </div>
@@ -185,6 +187,10 @@ async function loadProjects() {
 
   } catch (error) {
     console.error('Failed to load projects:', error);
+    const highlightsContainer = document.querySelector('#highlights-sub .projects');
+    if (highlightsContainer) {
+      highlightsContainer.innerHTML = '<p style="color: var(--muted); padding: 1rem;">Projekty se nepodařilo načíst.</p>';
+    }
   }
 }
 
@@ -256,13 +262,17 @@ window.addEventListener('hashchange', () => {
   resetAndTriggerMobileGifFade();
 });
 
-// Handle responsive window resizing smoothly
+// Handle responsive window resizing smoothly (with debounce)
+let resizeTimer = null;
 window.addEventListener('resize', () => {
-  const activeTab = contentContainer.querySelector('.tab-content.active');
-  if (activeTab) {
-    contentContainer.style.transition = 'none';
-    contentContainer.style.height = activeTab.offsetHeight + 'px';
-    contentContainer.offsetHeight; // Force reflow
-    contentContainer.style.transition = 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-  }
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const activeTab = contentContainer.querySelector('.tab-content.active');
+    if (activeTab) {
+      contentContainer.style.transition = 'none';
+      contentContainer.style.height = activeTab.offsetHeight + 'px';
+      activeTab.offsetHeight; // Force reflow
+      contentContainer.style.transition = 'height 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+  }, 150);
 });
