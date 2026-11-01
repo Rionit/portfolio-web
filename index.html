@@ -128,41 +128,73 @@
         <!-- About Me Section -->
         <section id="about-section" class="tab-content">
           <div class="about-card">
-            <h3>Yapping Section</h3>
+            <div>
+                <span class="term-prompt">&gt;</span> <span class="term-hl">neofetch</span>
+            </div>
+
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin: 0.5rem 0; flex-wrap: wrap;">
+              <img src="neofetch.gif" alt="Neofetch Image" style="width: 250px; height: 250px; object-fit: cover; border-radius: 4px;">
+              <div style="font-family: inherit; line-height: 1.4; flex-grow: 1;">
+                <span class="term-hl">visitor</span><span class="sep">@</span><span class="path">rionit.net</span><br>
+                <span class="sep">------------------</span><br>
+                <span class="term-hl">OS:</span> TrueNAS Scale<br>
+                <span class="term-hl">Host:</span> Web Browser<br>
+                <span class="term-hl">Uptime:</span> A while now for sure<br>
+                <span class="term-hl">Role:</span> Game Dev &amp; 3D Artist<br>
+                <span class="term-hl">Engines:</span> Blender, Godot, Unity<br>
+                <span class="term-hl">Stack:</span> GDScript, C#, C++, JS<br>
+                <span class="term-hl">Contact:</span> contact@rionit.net
+              </div>
+            </div>
             
-            <p class="about-text">
-              Hi! I am a Master's student at <strong>MFF UK Prague</strong>, a game dev and a 3D artist. 
-              Basically, I just press buttons in game engines (mostly <strong>Godot</strong> 💕 / <strong>Unity</strong>) and create stuff in <strong>Blender</strong>.
-            </p>
+            <!-- Terminal Color Palette Block -->
+            <div style="margin-top: 0.75rem; display: flex; gap: 0.25rem; flex-wrap: wrap; margin-left: calc(250px + 1.5rem);">
+              <span style="background-color: var(--bg-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span style="background-color: var(--primary-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span style="background-color: var(--secondary-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span style="background-color: var(--accent-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span style="background-color: var(--muted); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span style="background-color: var(--text-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+            </div>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              To make my time management a complete nightmare, I also have plenty of hobbies.
-            </p>
+            <div class="hero-divider" style="margin: 1.5rem 0;"></div>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              I absolutely love cinema. My total movie theater visits to date sit at <strong>370</strong> and I have a <a href="https://www.csfd.cz/uzivatel/830932-itsmerionit/o-mne/" target="_blank" rel="noopener">ČSFD profile</a>.
-            </p>
+            <!-- Hobbies / Yapping Section as Terminal Output Text -->
+            <div style="font-family: inherit; line-height: 1.6; font-size: 0.95rem; display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <span class="term-prompt">&gt;</span> <span class="term-hl">cat /home/rionit/about-me.txt</span>
+              </div>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              My favorite Aussie band <strong>King Gizzard & the Lizard Wizard</strong> inspired me to play the guitar.
-            </p>
+              <p class="about-text">
+                Hi! I am a Master's student at <strong>MFF UK Prague</strong>, a game dev and a 3D artist. 
+                Basically, I just press buttons in game engines (mostly <strong>Godot</strong> 💕 / <strong>Unity</strong>) and create stuff in <strong>Blender</strong>.
+              </p>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              I also enjoy photography using everything from a <strong>DSLR</strong> and a <strong>Kodak Charmera</strong> 
-              all the way to analog gear like the <strong>Lubitel 2</strong> or the panoramic <strong>Horizont</strong>.
-            </p>
+              <p class="about-text">
+                To make my time management a complete nightmare, I also have plenty of hobbies.
+              </p>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              Obviously, I play a lot of video and board games. If you wanna see which games I love/hate, here's my <a href="https://backloggd.com/u/Rionit/">backloggd<a>, but it's not 100% completed yet.
-            </p>
-            <p class="about-text" style="margin-top: 1rem;">
-              I'm also a pretty decent cook (at least according to my wife). 
-              You can check out my meals <a href="https://immich.rionit.net/s/chefs-kiss" target="_blank" rel="noopener">here</a>.
-            </p>
+              <p class="about-text">
+                I absolutely love cinema. My total movie theater visits to date sit at <strong>370</strong> and I have a <a href="https://www.csfd.cz/uzivatel/830932-itsmerionit/o-mne/" target="_blank" rel="noopener">ČSFD profile</a>.
+              </p>
 
-            <p class="about-text" style="margin-top: 1rem;">
-              <em>BTW: This server is self-hosted on an old computer!</em>
-            </p>
+              <p class="about-text">
+                My favorite Aussie band <strong>King Gizzard & the Lizard Wizard</strong> inspired me to play the guitar.
+              </p>
+
+              <p class="about-text">
+                I also enjoy photography using everything from a <strong>DSLR</strong> and a <strong>Kodak Charmera</strong> 
+                all the way to analog gear like the <strong>Lubitel 2</strong> or the panoramic <strong>Horizont</strong>.
+              </p>
+
+              <p class="about-text">
+                Obviously, I play a lot of video and board games. If you wanna see which games I love/hate, here's my <a href="https://backloggd.com/u/Rionit/">backloggd</a>, but it's not 100% completed yet.
+              </p>
+
+              <p class="about-text">
+                <em>BTW: This server is self-hosted on an old computer!</em>
+              </p>
+            </div>
           </div>
         </section>
       </div>
