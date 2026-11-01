@@ -515,3 +515,130 @@ html, body {
   border-color: var(--primary-color);
   box-shadow: 0px 0px 10px rgba(125, 197, 235, 0.15);
 }
+
+/* TERMINAL EASTER EGG STYLES */
+.terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 10, 11, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.terminal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.terminal-box {
+  width: 90%;
+  max-width: 700px;
+  height: 450px;
+  background: var(--box-color);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 25px rgba(125, 197, 235, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-header {
+  background: var(--header-color);
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-title {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+}
+
+.terminal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.terminal-close-btn:hover {
+  color: var(--accent-color);
+}
+
+.terminal-body {
+  padding: 1rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.terminal-welcome {
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.term-hl {
+  color: var(--accent-color);
+}
+
+#terminal-output {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.term-prompt {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+#terminal-input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.term-line {
+  word-break: break-all;
+}
+
+.term-error {
+  color: #ff6b6b;
+}
+
+.term-success {
+  color: #51cf66;
+}

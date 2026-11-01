@@ -281,3 +281,164 @@ window.addEventListener('resize', () => {
     }
   }, 150);
 });
+
+
+// ==========================================
+// TERMINAL EASTER EGG LOGIC
+// ==========================================
+const terminalOverlay = document.getElementById('terminal-overlay');
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+const terminalCloseBtn = document.getElementById('terminal-close');
+const terminalBody = document.getElementById('terminal-body');
+const terminalTrigger = document.getElementById('terminal-trigger');
+
+function toggleTerminal(e) {
+  if (e) e.preventDefault();
+  terminalOverlay.classList.toggle('active');
+  if (terminalOverlay.classList.contains('active')) {
+    terminalInput.focus();
+  }
+}
+
+// Toggle with ~ (Backquote) key
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Backquote' || e.key === '`') {
+    e.preventDefault();
+    toggleTerminal();
+  } else if (e.key === 'Escape' && terminalOverlay.classList.contains('active')) {
+    terminalOverlay.classList.remove('active');
+  }
+});
+
+terminalTrigger.addEventListener('click', toggleTerminal);
+terminalCloseBtn.addEventListener('click', () => terminalOverlay.classList.remove('active'));
+
+terminalOverlay.addEventListener('click', (e) => {
+  if (e.target === terminalOverlay) {
+    terminalOverlay.classList.remove('active');
+  }
+});
+
+terminalInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const cmd = terminalInput.value.trim();
+    if (cmd) {
+      executeCommand(cmd);
+    }
+    terminalInput.value = '';
+  }
+});
+
+function printToTerminal(htmlContent, className = '') {
+  const div = document.createElement('div');
+  div.className = `term-line ${className}`;
+  div.innerHTML = htmlContent;
+  terminalOutput.appendChild(div);
+  terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+function executeCommand(cmd) {
+  printToTerminal(`<span class="term-prompt">&gt;</span> ${escapeHtml(cmd)}`);
+
+  const parts = cmd.toLowerCase().split(' ');
+  const mainCmd = parts[0];
+  const args = parts.slice(1);
+
+  switch (mainCmd) {
+    case 'help':
+      printToterimalHelp();
+      break;
+    case 'projects':
+      printToTerminal(`Switching to Projects tab...`, 'term-success');
+      document.querySelector('[data-target="projects-section"]').click();
+      setTimeout(() => terminalOverlay.classList.remove('active'), 400);
+      break;
+    case 'links':
+      printToTerminal(`Switching to Links tab...`, 'term-success');
+      document.querySelector('[data-target="links-section"]').click();
+      setTimeout(() => terminalOverlay.classList.remove('active'), 400);
+      break;
+    case 'about':
+      printToTerminal(`Switching to About Me tab...`, 'term-success');
+      document.querySelector('[data-target="about-section"]').click();
+      setTimeout(() => terminalOverlay.classList.remove('active'), 400);
+      break;
+    case 'stardew':
+      printToTerminal(`Switching to Stardew website...`, 'term-success');
+      window.location.href = 'https://stardew.rionit.net';
+      setTimeout(() => terminalOverlay.classList.remove('active'), 400);
+      break;
+    case 'whoami':
+      printToTerminal(`Bc. Filip Doležal (Rionit) - Game Dev, 3D Artist & Master's Student at MFF UK`);
+      break;
+    case 'neofetch':
+      printNeofetch();
+      break;
+    case 'sudo':
+      if (args[0] === 'hire') {
+        printToTerminal(`[sudo] password for visitor: *********<br><span class="term-success">ACCESS GRANTED! 🎉 Send an email to contact@rionit.net to start working together!</span>`);
+      } else {
+        printToTerminal(`sudo: ${escapeHtml(args.join(' '))}: command not found. Did you mean <span class="term-hl">sudo hire</span>?`, 'term-error');
+      }
+      break;
+    case 'date':
+      printToTerminal(new Date().toString());
+      break;
+    case 'echo':
+      printToTerminal(escapeHtml(args.join(' ')));
+      break;
+    case 'clear':
+      terminalOutput.innerHTML = '';
+      break;
+    default:
+      printToTerminal(`Command not found: ${escapeHtml(mainCmd)}. Type <span class="term-hl">help</span> for available commands.`, 'term-error');
+  }
+}
+
+function printNeofetch() {
+  const neofetchHtml = `
+<div style="display: flex; gap: 1.5rem; align-items: flex-start; margin: 0.5rem 0;">
+  <img src="neofetch.gif" alt="Neofetch Image" style="width: 250px; height: 250px; object-fit: cover;">
+  <div style="font-family: inherit; line-height: 1.4;">
+    <span class="term-hl">visitor</span><span class="sep">@</span><span class="path">rionit.net</span><br>
+    <span class="sep">------------------</span><br>
+    <span class="term-hl">OS:</span> TrueNAS Scale<br>
+    <span class="term-hl">Host:</span> Web Browser<br>
+    <span class="term-hl">Uptime:</span> A while now for sure<br>
+    <span class="term-hl">Role:</span> Game Dev &amp; 3D Artist<br>
+    <span class="term-hl">Engines:</span> Blender, Godot, Unity<br>
+    <span class="term-hl">Stack:</span> GDScript, C#, C++, JS<br>
+    <span class="term-hl">Contact:</span> contact@rionit.net
+  </div>
+</div>
+<div style="margin-top: 0.5rem; margin-left: calc(250px + 1.5rem);">
+  <span style="background-color: var(--bg-color); padding: 0 20px;">   </span><span style="background-color: var(--primary-color); padding: 0 20px;">   </span><span style="background-color: var(--secondary-color); padding: 0 20px;">   </span><span style="background-color: var(--accent-color); padding: 0 20px;">   </span><span style="background-color: var(--muted); padding: 0 20px;">   </span><span style="background-color: var(--text-color); padding: 0 20px;">   </span>
+</div>`.trim();
+  printToTerminal(neofetchHtml);
+}
+
+function printToterimalHelp() {
+  printToTerminal(`Available commands:<br>` +
+    `- <span class="term-hl">projects</span>: View projects section<br>` +
+    `- <span class="term-hl">links</span>: View social & contact links<br>` +
+    `- <span class="term-hl">about</span>: Learn more about me<br>` +
+    `- <span class="term-hl">whoami</span>: Display user info<br>` +
+    `- <span class="term-hl">neofetch</span>: Display system/portfolio info overview<br>` +
+    `- <span class="term-hl">stardew</span>: Play Journey of the Prairie King<br>` +
+    `- <span class="term-hl">sudo hire</span>: Instant recruitment access<br>` +
+    `- <span class="term-hl">date</span>: Show current date & time<br>` +
+    `- <span class="term-hl">echo [text]</span>: Print custom text<br>` +
+    `- <span class="term-hl">clear</span>: Clear terminal screen`);
+}
+
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}

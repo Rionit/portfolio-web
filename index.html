@@ -171,11 +171,33 @@
 
       <footer>
         <p>Checkout my wife <a href="https://aristrela.com">Arina</a> 💕 & my friend <a href="https://lmnk.dev">lmnk</a>!</p>
-        <p>© 2026 Filip Doležal</p>    
+        <p style="margin-top: 0.3rem;">© 2026 Filip Doležal</p>    
+        <p style="margin-top: 0.6rem;"><a href="#" id="terminal-trigger" style="color: var(--muted); font-size: 0.75rem; text-decoration: none;">[~]</a></p>
       </footer>
 
     </div>
   </main>
+
+  <!-- Terminal Easter Egg Overlay -->
+  <div id="terminal-overlay" class="terminal-overlay">
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <span class="terminal-title">visitor@rionit.net:~</span>
+        <button id="terminal-close" class="terminal-close-btn">[x]</button>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="terminal-welcome">
+          Type <span class="term-hl">help</span> to see available commands.<br>
+          Press <span class="term-hl">~</span> (tilde) or click [x] to close.
+        </div>
+        <div id="terminal-output"></div>
+        <div class="terminal-input-line">
+          <span class="term-prompt">&gt;</span>
+          <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
