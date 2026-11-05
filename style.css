@@ -658,3 +658,66 @@ html, body {
     justify-content: flex-start;
   }
 }
+
+/* Home Link positioning */
+.home-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.home-link:hover {
+  color: var(--primary-color);
+}
+
+/* Neofetch Section Layout */
+.neofetch-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+.neofetch-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.neofetch-text {
+  font-family: inherit;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+/* Terminal Color Blocks & Divider adjustments */
+.term-color-block {
+  width: 2.5rem;
+  height: 1.2rem;
+  display: inline-block;
+}
+
+.about-divider {
+  margin: 1.5rem 0;
+}
+
+.about-yapping {
+  font-family: inherit;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Footer spacing classes */
+.footer-copy {
+  margin-top: 0.3rem;
+}
+
+.footer-terminal-trigger {
+  margin-top: 0.6rem;
+}

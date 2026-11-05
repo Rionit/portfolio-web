@@ -6,6 +6,16 @@
 
   <title>Filip Doležal | @Rionit</title>
 
+  <!-- Primary Meta Tags & SEO -->
+  <meta name="description" content="Portfolio of Filip Doležal (Rionit) - Game Developer, 3D Artist, and Master's Student at MFF UK.">
+  
+  <!-- Open Graph / Social Sharing (Discord, LinkedIn, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rionit.net/">
+  <meta property="og:title" content="Filip Doležal | @Rionit">
+  <meta property="og:description" content="Game Developer · 3D Artist · Master's Student · Cinephile">
+  <meta property="og:image" content="https://rionit.net/neofetch.gif">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- JetBrains Mono font (important for the aesthetic) -->
@@ -20,7 +30,7 @@
     
     <div class="card">
 
-      <a href="home.html" class="home-link" style="position:absolute; top:1rem; right:1rem;">Home</a>
+      <a href="home.html" class="home-link">Home</a>
 
       <header>
         <h1 class="hero-title">Bc. FILIP DOLEŽAL</h1>
@@ -33,16 +43,16 @@
       </header>
 
       <!-- Main Tab Buttons -->
-      <div class="tab-controls">
-        <button class="tab-btn active" data-target="projects-section">Projects</button>
-        <button class="tab-btn" data-target="links-section">Links</button>
-        <button class="tab-btn" data-target="about-section">About Me</button>
+      <div class="tab-controls" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="projects-section" data-target="projects-section">Projects</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="links-section" data-target="links-section">Links</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="about-section" data-target="about-section">About Me</button>
       </div>
 
       <div class="content-container">
 
         <!-- Projects Section with Subcategories -->
-        <section id="projects-section" class="tab-content active">
+        <section id="projects-section" class="tab-content active" role="tabpanel">
           <div class="subtab-controls">
             <button class="subtab-btn active" data-subtarget="highlights-sub">Highlights</button>
             <button class="subtab-btn" data-subtarget="games-sub">Games</button>
@@ -74,7 +84,7 @@
         </section>
   
         <!-- Links Section -->
-        <section id="links-section" class="tab-content">
+        <section id="links-section" class="tab-content" role="tabpanel">
           <div class="links">
   
             <a href="mailto:contact@rionit.net" class="badge">
@@ -86,7 +96,7 @@
               <div class="arrow">[~]</div>
             </a>
   
-            <a href="https://rionit.itch.io/" target="_blank" class="badge">
+            <a href="https://rionit.itch.io/" target="_blank" class="badge" rel="noopener">
               <div class="label-group">
                 <span class="label">itch.io</span>
                 <span class="username">rionit</span>
@@ -95,7 +105,7 @@
               <div class="arrow">[~]</div>
             </a>
   
-            <a href="https://github.com/Rionit" target="_blank" class="badge">
+            <a href="https://github.com/Rionit" target="_blank" class="badge" rel="noopener">
               <div class="label-group">
                 <span class="label">GitHub</span>
                 <span class="username">rionit</span>
@@ -104,7 +114,7 @@
               <div class="arrow">[~]</div>
             </a>
 
-            <a href="https://www.artstation.com/rionit" target="_blank" class="badge">
+            <a href="https://www.artstation.com/rionit" target="_blank" class="badge" rel="noopener">
               <div class="label-group">
                 <span class="label">Artstation</span>
                 <span class="username">rionit</span>
@@ -113,7 +123,7 @@
               <div class="arrow">[~]</div>
             </a>
   
-            <a href="https://www.linkedin.com/in/dolezal-filip" target="_blank" class="badge">
+            <a href="https://www.linkedin.com/in/dolezal-filip" target="_blank" class="badge" rel="noopener">
               <div class="label-group">
                 <span class="label">LinkedIn</span>
                 <span class="username">dolezal-filip</span>
@@ -126,15 +136,15 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about-section" class="tab-content">
+        <section id="about-section" class="tab-content" role="tabpanel">
           <div class="about-card">
             <div>
                 <span class="term-prompt">&gt;</span> <span class="term-hl">neofetch</span>
             </div>
 
-            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin: 0.5rem 0; flex-wrap: wrap;">
-              <img src="neofetch.gif" alt="Neofetch Image" style="width: 250px; height: 250px; object-fit: cover; border-radius: 4px;">
-              <div style="font-family: inherit; line-height: 1.4; flex-grow: 1;">
+            <div class="neofetch-container">
+              <img src="neofetch.gif" alt="Neofetch Image" class="neofetch-img">
+              <div class="neofetch-text">
                 <span class="term-hl">visitor</span><span class="sep">@</span><span class="path">rionit.net</span><br>
                 <span class="sep">------------------</span><br>
                 <span class="term-hl">OS:</span> TrueNAS Scale<br>
@@ -149,18 +159,18 @@
             
             <!-- Terminal Color Palette Block -->
             <div class="terminal-colors">
-              <span style="background-color: var(--bg-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
-              <span style="background-color: var(--primary-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
-              <span style="background-color: var(--secondary-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
-              <span style="background-color: var(--accent-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
-              <span style="background-color: var(--muted); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
-              <span style="background-color: var(--text-color); width: 2.5rem; height: 1.2rem; display: inline-block;"></span>
+              <span class="term-color-block" style="background-color: var(--bg-color);"></span>
+              <span class="term-color-block" style="background-color: var(--primary-color);"></span>
+              <span class="term-color-block" style="background-color: var(--secondary-color);"></span>
+              <span class="term-color-block" style="background-color: var(--accent-color);"></span>
+              <span class="term-color-block" style="background-color: var(--muted);"></span>
+              <span class="term-color-block" style="background-color: var(--text-color);"></span>
             </div>
 
-            <div class="hero-divider" style="margin: 1.5rem 0;"></div>
+            <div class="hero-divider about-divider"></div>
 
             <!-- Hobbies / Yapping Section as Terminal Output Text -->
-            <div style="font-family: inherit; line-height: 1.6; font-size: 0.95rem; display: flex; flex-direction: column; gap: 1rem;">
+            <div class="about-yapping">
               <div>
                 <span class="term-prompt">&gt;</span> <span class="term-hl">cat /home/rionit/about-me.txt</span>
               </div>
@@ -203,8 +213,8 @@
 
       <footer>
         <p>Checkout my wife <a href="https://aristrela.com">Arina</a> 💕 & my friend <a href="https://lmnk.dev">lmnk</a>!</p>
-        <p style="margin-top: 0.3rem;">© 2026 Filip Doležal</p>    
-        <p style="margin-top: 0.6rem;"><a href="#" id="terminal-trigger" style="color: var(--muted); font-size: 0.75rem; text-decoration: none;">[~]</a></p>
+        <p class="footer-copy">© 2026 Filip Doležal</p>    
+        <p class="footer-terminal-trigger"><a href="#" id="terminal-trigger" style="color: var(--muted); font-size: 0.75rem; text-decoration: none;">[~]</a></p>
       </footer>
 
     </div>
