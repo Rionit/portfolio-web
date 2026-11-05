@@ -103,5 +103,17 @@
     "links": [
       { "label": "link", "url": "https://www.artstation.com/artwork/xDXeg1" }
     ]
+  },
+  {
+    "title": "Reactive Snow",
+    "description": "Implementation of realistic reactive snow like in Read Dead Redemption 2, Ghost of Yōtei and games alike.",
+    "categories": ["cgi", "school"],
+    "priority": 11,
+    "thumbnail": "images/reactive-snow.jpg",
+    "gif": "images/reactive-snow.gif",
+    "links": [
+      { "label": "repository", "url": "https://github.com/Rionit/Reactive-Snow" },
+      { "label": "video", "url": "https://youtu.be/fblvGvRIkUs" }
+    ]
   }
 ]
