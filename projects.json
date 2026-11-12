@@ -115,5 +115,16 @@
       { "label": "repository", "url": "https://github.com/Rionit/Reactive-Snow" },
       { "label": "video", "url": "https://youtu.be/fblvGvRIkUs" }
     ]
+  },
+  {
+    "title": "Keep connecting",
+    "description": "A game made in 10 day MSI GameJam about giving life to an AI.",
+    "categories": ["games"],
+    "priority": 5,
+    "thumbnail": "images/keep-connecting.png",
+    "links": [
+      { "label": "play", "url": "https://rionit.itch.io/keep-connecting" },
+      { "label": "repository", "url": "http://github.com/Rionit/MSI-GameJam-2026/" }
+    ]
   }
 ]
