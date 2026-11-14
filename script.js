@@ -349,6 +349,12 @@ function executeCommand(cmd) {
     case 'help':
       printToterimalHelp();
       break;
+    case 'ls':
+      if (args[0] === '-ll')
+        printLsll(); 
+      else
+        printLs(); 
+      break;
     case 'projects':
       printToTerminal(`Switching to Projects tab...`, 'term-success');
       document.querySelector('[data-target="projects-section"]').click();
@@ -396,6 +402,34 @@ function executeCommand(cmd) {
   }
 }
 
+function printLsll() {
+  const fileData = [
+    { name: 'filip-dolezal-cv.pdf', size: '141 KB', date: 'Mar 30 2026' },
+    { name: 'portfolio.pdf', size: '2.54 MB', date: 'Nov 1 2026' },
+    { name: 'portfolio.blend', size: '9.56 MB', date: 'Nov 14 2026' }
+  ];
+
+  const filesHtml = fileData.map(file => 
+    `-rw-r--r-- 1 visitor rionit ${file.size.padStart(7)} ${file.date} <a href="${file.name}" download class="term-hl" style="text-decoration: underline; cursor: pointer;">${file.name}</a>`
+  ).join('<br>');
+
+  printToTerminal(`total 12.24 MB<br>${filesHtml}`);
+}
+
+function printLs() {
+  const fileData = [
+    { name: 'filip-dolezal-cv.pdf'},
+    { name: 'portfolio.pdf'},
+    { name: 'portfolio.blend'}
+  ];
+
+  const filesHtml = fileData.map(file => 
+    `<a href="${file.name}" download class="term-hl" style="text-decoration: underline; cursor: pointer;">${file.name}</a>`
+  ).join('<br>');
+
+  printToTerminal(`${filesHtml}`);
+}
+
 function printNeofetch() {
   const neofetchHtml = `
 <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin: 0.5rem 0;">
@@ -420,6 +454,7 @@ function printNeofetch() {
 
 function printToterimalHelp() {
   printToTerminal(`Available commands:<br>` +
+    `- <span class="term-hl">ls</span>: List downloadable files<br>` +
     `- <span class="term-hl">projects</span>: View projects section<br>` +
     `- <span class="term-hl">links</span>: View social & contact links<br>` +
     `- <span class="term-hl">about</span>: Learn more about me<br>` +
